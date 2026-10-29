@@ -23,4 +23,8 @@ public class MenuPrincipalController implements Initializable {
         // TODO
     }    
     
+    public void btnProdutosClick() {
+        System.out.println("x: Botão Produto Clickado!");
+    }
+    
 }
