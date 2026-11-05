@@ -18,7 +18,7 @@ public class Produto {
 
     int id;
     String codBarras;
-    String descriacao;
+    String descricao;
     double qtd;
     double valorCompra;
     double valorVenda;
@@ -30,7 +30,7 @@ public class Produto {
     public Produto(int id, String codBarras, String descriacao, double qtd, double valorCompra, double valorVenda, Calendar dataCadastro) {
         this.id = id;
         this.codBarras = codBarras;
-        this.descriacao = descriacao;
+        this.descricao = descriacao;
         this.qtd = qtd;
         this.valorCompra = valorCompra;
         this.valorVenda = valorVenda;
@@ -56,12 +56,12 @@ public class Produto {
         this.codBarras = codBarras;
     }
 
-    public String getDescriacao() {
-        return descriacao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescriacao(String descriacao) {
-        this.descriacao = descriacao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public double getQtd() {
@@ -112,7 +112,7 @@ public class Produto {
 
     @Override
     public String toString() {
-        return String.format("%3d | %15s | %-30s | %10.2f | %10.2f | %10.2f | %10s",this.id,this.codBarras,this.descriacao,this.qtd,this.valorCompra,this.valorVenda, this.getDataCadastro());
+        return String.format("%3d | %15s | %-30s | %10.2f | %10.2f | %10.2f | %10s",this.id,this.codBarras,this.descricao,this.qtd,this.valorCompra,this.valorVenda, this.getDataCadastro());
                 
     }
 

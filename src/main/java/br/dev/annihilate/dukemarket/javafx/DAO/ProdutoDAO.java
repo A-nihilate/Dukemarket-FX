@@ -37,7 +37,7 @@ public class ProdutoDAO {
         try {
             stmt = conn.prepareStatement(SQL_INSERT);
             stmt.setString(1, p.getCodBarras());
-            stmt.setString(2, p.getDescriacao());
+            stmt.setString(2, p.getDescricao());
             stmt.setDouble(3, p.getQtd());
             stmt.setDouble(4, p.getValorCompra());
             stmt.setDouble(5, p.getValorVenda());
@@ -72,7 +72,7 @@ public class ProdutoDAO {
                 p = new Produto();
                 p.setId(rs.getInt("id"));
                 p.setCodBarras(rs.getString("codBarras"));
-                p.setDescriacao(rs.getString("descricao"));
+                p.setDescricao(rs.getString("descricao"));
                 p.setQtd(rs.getDouble("qtd"));
                 p.setValorCompra(rs.getDouble("ValorCompra"));
                 p.setValorVenda(rs.getDouble("ValorVenda"));
@@ -104,7 +104,7 @@ public class ProdutoDAO {
                 p = new Produto();
                 p.setId(rs.getInt("id"));
                 p.setCodBarras(rs.getString("codBarras"));
-                p.setDescriacao(rs.getString("descricao"));
+                p.setDescricao(rs.getString("descricao"));
                 p.setQtd(rs.getDouble("qtd"));
                 p.setValorCompra(rs.getDouble("ValorCompra"));
                 p.setValorVenda(rs.getDouble("ValorVenda"));
@@ -127,7 +127,7 @@ public class ProdutoDAO {
         try {
             stmt = conn.prepareStatement(SQL_UPDATE);
             stmt.setString(1, p.getCodBarras());
-            stmt.setString(2, p.getDescriacao());
+            stmt.setString(2, p.getDescricao());
             stmt.setDouble(3, p.getQtd());
             stmt.setDouble(4, p.getValorCompra());
             stmt.setDouble(5, p.getValorVenda());
