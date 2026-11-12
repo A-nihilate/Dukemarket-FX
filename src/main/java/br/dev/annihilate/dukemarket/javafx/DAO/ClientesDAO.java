@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  * @author sesi2dia
  */
 public class ClientesDAO {
-    
+
     private static final String SQL_INSERT = "INSERT INTO produto (codBarras,"
             + "descricao, qtd, valorCompra, valorVenda)"
             + "VALUES (?, ?, ?, ?, ?)";
@@ -32,7 +32,6 @@ public class ClientesDAO {
             + "WHERE id = ?";
     private static final String SQL_DELETE = "DELETE FROM produto WHERE id = ?";
 
-    
     public void create(Clientes c) {
 
         Connection conn = MySQLConnection.getConnection();
@@ -58,7 +57,7 @@ public class ClientesDAO {
         }
 
     }
-    
+
     public List<Clientes> getResults() {
         Connection conn = MySQLConnection.getConnection();
         PreparedStatement stmt = null;
@@ -90,4 +89,81 @@ public class ClientesDAO {
         return listaProdutos;
 
     }
+
+    public Clientes getResultById(int id) {
+        Connection conn = MySQLConnection.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Clientes c = null;
+
+        try {
+            stmt = conn.prepareStatement(SQL_SELECT_ID);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                c = new Clientes();
+                c.setId(rs.getInt("id"));
+                c.setcPF(rs.getString("cPF"));
+                c.setNome(rs.getString("nome"));
+                c.setEndereco(rs.getString("endereco"));
+                c.setCidade(rs.getString("cidade"));
+                c.setuF(rs.getString("uF"));
+                c.setDataCadastro(rs.getString("dataCadastro"));
+            }
+        } catch (SQLException sQLException) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, sQLException);
+        } finally {
+            MySQLConnection.closeConnection(conn, stmt, rs);
+        }
+
+        return c;
+
+    }
+
+    public void update(Clientes c) {
+        Connection conn = MySQLConnection.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement(SQL_UPDATE);
+            stmt.setString(1, c.getcPF());
+            stmt.setString(2, c.getNome());
+            stmt.setString(3, c.getEndereco());
+            stmt.setString(4, c.getCidade());
+            stmt.setString(5, c.getuF());
+            stmt.setInt(6, c.getId());
+
+            int auxRetorno = stmt.executeUpdate();
+
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.INFO, null,
+                    "Update: " + auxRetorno);
+        } catch (SQLException sQLException) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, sQLException);
+        } finally {
+            MySQLConnection.closeConnection(conn, stmt);
+        }
+    }
+
+    public void delete(int id) {
+        Connection conn = MySQLConnection.getConnection();
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = conn.prepareStatement(SQL_DELETE);
+            stmt.setInt(1, id);
+
+            int auxRetorno = stmt.executeUpdate();
+
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.INFO, null,
+                    "Delete: " + auxRetorno);
+
+        } catch (SQLException sQLException) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, sQLException);
+        } finally {
+            MySQLConnection.closeConnection(conn, stmt);
+        }
+
+    }
+
 }
