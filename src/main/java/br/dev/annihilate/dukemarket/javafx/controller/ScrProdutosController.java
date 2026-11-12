@@ -163,7 +163,7 @@ public class ScrProdutosController implements Initializable {
         p.setValorVenda(Double.parseDouble(txtValorVenda.getText())); 
 
         if (!isProdutoNovo) {
-            p.setId(Integer.parseInt(txtId.getId())); // TENTATIVA 2 ()
+            p.setId(Integer.parseInt(txtId.getText())); // TENTATIVA 2 ()
             pDAO.update(p);
         } else {
             pDAO.create(p);
