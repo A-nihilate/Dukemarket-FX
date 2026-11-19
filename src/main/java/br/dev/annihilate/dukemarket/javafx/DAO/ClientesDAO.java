@@ -39,7 +39,7 @@ public class ClientesDAO {
 
         try {
             stmt = conn.prepareStatement(SQL_INSERT);
-            stmt.setString(1, c.getcPF());
+            stmt.setString(1, c.getCPF());
             stmt.setString(2, c.getNome());
             stmt.setString(3, c.getEndereco());
             stmt.setString(4, c.getCidade());
@@ -74,7 +74,7 @@ public class ClientesDAO {
             while (rs.next()) {
                 c = new Clientes();
                 c.setId(rs.getInt("id"));
-                c.setcPF(rs.getString("cPF"));
+                c.setCPF(rs.getString("CPF"));
                 c.setNome(rs.getString("nome"));
                 c.setEndereco(rs.getString("endereco"));
                 c.setCidade(rs.getString("cidade"));
@@ -104,7 +104,7 @@ public class ClientesDAO {
             if (rs.next()) {
                 c = new Clientes();
                 c.setId(rs.getInt("id"));
-                c.setcPF(rs.getString("cPF"));
+                c.setCPF(rs.getString("CPF"));
                 c.setNome(rs.getString("nome"));
                 c.setEndereco(rs.getString("endereco"));
                 c.setCidade(rs.getString("cidade"));
@@ -127,7 +127,7 @@ public class ClientesDAO {
 
         try {
             stmt = conn.prepareStatement(SQL_UPDATE);
-            stmt.setString(1, c.getcPF());
+            stmt.setString(1, c.getCPF());
             stmt.setString(2, c.getNome());
             stmt.setString(3, c.getEndereco());
             stmt.setString(4, c.getCidade());

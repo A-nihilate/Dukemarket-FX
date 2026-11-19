@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class Clientes {
     
     int id;
-    String cPF;
+    String CPF;
     String nome;
     String endereco;
     String cidade;
@@ -29,7 +29,7 @@ public class Clientes {
 
     public Clientes(int id, String cPF, String nome, String endereco, String cidade, String uF, Calendar dataCadastro) {
         this.id = id;
-        this.cPF = cPF;
+        this.CPF = cPF;
         this.nome = nome;
         this.endereco = endereco;
         this.cidade = cidade;
@@ -45,12 +45,12 @@ public class Clientes {
         this.id = id;
     }
 
-    public String getcPF() {
-        return cPF;
+    public String getCPF() {
+        return CPF;
     }
 
-    public void setcPF(String cPF) {
-        this.cPF = cPF;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 
     public String getNome() {
@@ -111,7 +111,7 @@ public class Clientes {
 
     @Override
     public String toString() {
-        return String.format("%3d | %15s | %-30s | %15s | %30s | %5s | %10s",this.id,this.cPF,this.nome,this.cidade,this.endereco,this.uF, this.getDataCadastro());
+        return String.format("%3d | %15s | %-30s | %15s | %30s | %5s | %10s",this.id,this.CPF,this.nome,this.cidade,this.endereco,this.uF, this.getDataCadastro());
                 
     }
 

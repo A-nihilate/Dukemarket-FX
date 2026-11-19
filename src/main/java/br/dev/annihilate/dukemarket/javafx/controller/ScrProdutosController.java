@@ -141,9 +141,10 @@ public class ScrProdutosController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         bindColumns();
+    
         carregaDados();
     }
-
+    
     @FXML
     public void btnSalvarClick() {
 

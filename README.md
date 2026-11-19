@@ -2,12 +2,12 @@ DukeMarket-JavaFX
 
 CREATE TABLE produto (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    codBarras VARCHAR(11),
+    codBarras VARCHAR(15),
     descricao VARCHAR(30),
-    qtd VARCHAR(15),
-    valorCompra VARCHAR(15),
-    valorVenda ,
-    dataCadastro DATE);
+    qtd INT,
+    valorCompra DECIMAL,
+    valorVenda DECIMAL,
+    dataCadastro DATETIME default current_timestamp);
 
 
 
